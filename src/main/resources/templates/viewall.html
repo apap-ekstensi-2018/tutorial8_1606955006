@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View All Students</title>
+</head>
+<head th:replace="fragments/fragment :: assets" />
+    <body>
+    	<div th:replace="fragments/fragment :: header"></div>
+        <h1>All Students</h1>
+		<table id="studentsTable" class="display" style="width:100%">
+	        <!-- Header Table -->
+	       <thead>
+	            <tr>
+	                <td>No.</td>
+					<td>NPM</td>
+	                <td>Name</td>
+	                <td>GPA</td>
+	                <td>Status</td>
+	                <td></td>
+	                <td></td>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr th:each="student,iterationStatus: ${students}">
+		            <td th:text="'.' + ${iterationStatus.count}"></td>
+			       	<td th:text="'NPM = ' + ${student.npm}"></td>
+			       	<td th:text="'Name = ' + ${student.name}"></td>
+			       	<td th:text="'GPA = ' + ${student.gpa}"></td>
+			       	<td th:text="${student.gpa>=3.49} ? 'Cum Laude!' : 'Sangat Memuaskan!'"></td>
+			       	<td><a th:href="'/student/delete/' + ${student.npm}" >Delete Data</a></td>
+			       	<td><a th:href="'/student/update/' + ${student.npm}" >Update Data</a></td>
+       			</tr>
+	        </tbody>
+    	</table>
+      <div th:replace="fragments/fragment :: footer"></div>
+    </body>
+</html>
