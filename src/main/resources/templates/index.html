@@ -3,10 +3,19 @@
 <head>
     <title>Index</title>
 </head>
+<head th:replace="fragments/fragment :: assets" />
 <body>
 	<div th:replace="fragments/fragment :: header"></div>
 	<h2>Welcome To Tutorial 08 APAP</h2>
+	
+	<form action="/student/view" method="get">
+	<div>
+		<label>NPM : <input type="text" name="npm"></label>
+	</div>
+	<div class="text-left">
+		<button type="submit" class="btn btn-primary">Cari</button>
+	</div>
+	</form>
 	<div th:replace="fragments/fragment :: footer"></div>
-	<a href="/login">Login</a>
 	</body>
 	</html>

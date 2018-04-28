@@ -9,5 +9,8 @@
     	<h1>Student not found</h1>
        	<h3 th:text="'NPM = ' + ${npm}">Student NPM</h3>
     <div th:replace="fragments/fragment :: footer"></div>
+    <form th:action="@{/logout}" method="post">
+        	<input type="submit" value="Sign Out"/>
+        </form>
     </body>
 </html>
